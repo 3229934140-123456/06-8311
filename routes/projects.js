@@ -249,17 +249,28 @@ router.get('/:id/gantt', authenticateToken, (req, res) => {
     return (a.order || 0) - (b.order || 0);
   });
   
-  res.json({
-    phases: phases.map(phase => ({
+  const phasesWithProgress = phases.map(phase => {
+    const phaseTasks = tasks.filter(t => t.phaseId === phase.id);
+    let phaseProgress = phase.progress || 0;
+    if (phaseTasks.length > 0) {
+      const totalWeight = phaseTasks.reduce((sum, t) => sum + (t.weight || 1), 0);
+      const weightedProgress = phaseTasks.reduce((sum, t) => sum + (t.progress || 0) * (t.weight || 1), 0);
+      phaseProgress = totalWeight > 0 ? weightedProgress / totalWeight : 0;
+    }
+    return {
       id: phase.id,
       name: phase.name,
       plannedStartDate: phase.plannedStartDate,
       plannedEndDate: phase.plannedEndDate,
       actualStartDate: phase.actualStartDate,
       actualEndDate: phase.actualEndDate,
-      progress: phase.progress || 0,
+      progress: phaseProgress,
       weight: phase.weight || 1
-    })),
+    };
+  });
+  
+  res.json({
+    phases: phasesWithProgress,
     tasks: tasks.map(task => ({
       id: task.id,
       phaseId: task.phaseId,

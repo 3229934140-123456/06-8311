@@ -1,7 +1,7 @@
 [
   {
-    "phaseId": "68164254-2303-49e0-9190-076e2e52cfa6",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "a3ef6936-6006-429b-9609-8e340918349b",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "场地平整",
     "weight": 20,
     "order": 0,
@@ -12,13 +12,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "90248e74-b1f7-40af-97d2-f32eaa011016",
-    "createdAt": "2026-06-17T05:10:53.479Z",
-    "updatedAt": "2026-06-17T05:10:53.479Z"
+    "id": "34ede5e6-679c-4e60-a540-b7537b3ea12b",
+    "createdAt": "2026-06-17T05:26:19.826Z",
+    "updatedAt": "2026-06-17T05:26:19.826Z"
   },
   {
-    "phaseId": "68164254-2303-49e0-9190-076e2e52cfa6",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "a3ef6936-6006-429b-9609-8e340918349b",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "桩基施工",
     "weight": 40,
     "order": 1,
@@ -29,13 +29,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "ccccaba2-326a-4d4e-a425-40154df7b856",
-    "createdAt": "2026-06-17T05:10:53.480Z",
-    "updatedAt": "2026-06-17T05:10:53.480Z"
+    "id": "5b8221aa-41f1-4f86-a6f0-88fcb8dd9548",
+    "createdAt": "2026-06-17T05:26:19.827Z",
+    "updatedAt": "2026-06-17T05:26:19.827Z"
   },
   {
-    "phaseId": "68164254-2303-49e0-9190-076e2e52cfa6",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "a3ef6936-6006-429b-9609-8e340918349b",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "土方开挖",
     "weight": 20,
     "order": 2,
@@ -46,13 +46,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "26afdeb6-1a2c-4866-93d4-2c9846386732",
-    "createdAt": "2026-06-17T05:10:53.481Z",
-    "updatedAt": "2026-06-17T05:10:53.481Z"
+    "id": "25455288-161a-4b9c-ac28-0b3d329db266",
+    "createdAt": "2026-06-17T05:26:19.827Z",
+    "updatedAt": "2026-06-17T05:26:19.827Z"
   },
   {
-    "phaseId": "68164254-2303-49e0-9190-076e2e52cfa6",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "a3ef6936-6006-429b-9609-8e340918349b",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "垫层施工",
     "weight": 20,
     "order": 3,
@@ -63,13 +63,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "a2d5659c-3a61-4fb1-aae1-6ddaa06d0ac2",
-    "createdAt": "2026-06-17T05:10:53.481Z",
-    "updatedAt": "2026-06-17T05:10:53.481Z"
+    "id": "b726eab9-2b3e-4d7e-9a85-15274e53b4a8",
+    "createdAt": "2026-06-17T05:26:19.828Z",
+    "updatedAt": "2026-06-17T05:26:19.828Z"
   },
   {
-    "phaseId": "9a828c9a-a011-4392-923a-168c3ed5c51e",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "45d2380d-bbb7-4926-8877-c2ee83ec71b5",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "地下一层结构",
     "weight": 25,
     "order": 4,
@@ -80,13 +80,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "786765e3-76fa-4827-a914-ca1b34496f26",
-    "createdAt": "2026-06-17T05:10:53.482Z",
-    "updatedAt": "2026-06-17T05:10:53.482Z"
+    "id": "7516ec6c-c579-48a0-97e0-efb106adbf9b",
+    "createdAt": "2026-06-17T05:26:19.829Z",
+    "updatedAt": "2026-06-17T05:26:19.829Z"
   },
   {
-    "phaseId": "9a828c9a-a011-4392-923a-168c3ed5c51e",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "45d2380d-bbb7-4926-8877-c2ee83ec71b5",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "地上1-3层结构",
     "weight": 35,
     "order": 5,
@@ -97,13 +97,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "7b7e76fa-6f3b-4c39-904c-67b0a80b450f",
-    "createdAt": "2026-06-17T05:10:53.482Z",
-    "updatedAt": "2026-06-17T05:10:53.482Z"
+    "id": "cf637bfe-5df1-4b66-b898-fce5e4798ace",
+    "createdAt": "2026-06-17T05:26:19.829Z",
+    "updatedAt": "2026-06-17T05:26:19.829Z"
   },
   {
-    "phaseId": "9a828c9a-a011-4392-923a-168c3ed5c51e",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "45d2380d-bbb7-4926-8877-c2ee83ec71b5",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "地上4-6层结构",
     "weight": 25,
     "order": 6,
@@ -114,13 +114,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "248419a3-6ba9-46df-a912-2f4f5ab28d34",
-    "createdAt": "2026-06-17T05:10:53.483Z",
-    "updatedAt": "2026-06-17T05:10:53.483Z"
+    "id": "4a7f1103-362c-4709-82bd-e79ffae8de24",
+    "createdAt": "2026-06-17T05:26:19.830Z",
+    "updatedAt": "2026-06-17T05:26:19.830Z"
   },
   {
-    "phaseId": "9a828c9a-a011-4392-923a-168c3ed5c51e",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "45d2380d-bbb7-4926-8877-c2ee83ec71b5",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "屋面结构",
     "weight": 15,
     "order": 7,
@@ -131,13 +131,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "b1117347-09e3-4f1f-b557-549f9fd97cf0",
-    "createdAt": "2026-06-17T05:10:53.483Z",
-    "updatedAt": "2026-06-17T05:10:53.483Z"
+    "id": "13b202e4-c093-4684-9996-c7ba7df1d57a",
+    "createdAt": "2026-06-17T05:26:19.830Z",
+    "updatedAt": "2026-06-17T05:26:19.830Z"
   },
   {
-    "phaseId": "22bd4cad-5ed3-4f7d-85e7-0467a1e67562",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "1356ef2a-3e1d-4387-8c3c-65a7f3de5041",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "给排水管道",
     "weight": 30,
     "order": 8,
@@ -148,13 +148,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "b0bd7e38-8e21-4b4e-a1e6-efa847d2af81",
-    "createdAt": "2026-06-17T05:10:53.484Z",
-    "updatedAt": "2026-06-17T05:10:53.484Z"
+    "id": "2a2d32ec-4d03-4a1b-b036-20b2d9686010",
+    "createdAt": "2026-06-17T05:26:19.831Z",
+    "updatedAt": "2026-06-17T05:26:19.831Z"
   },
   {
-    "phaseId": "22bd4cad-5ed3-4f7d-85e7-0467a1e67562",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "1356ef2a-3e1d-4387-8c3c-65a7f3de5041",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "强电系统",
     "weight": 30,
     "order": 9,
@@ -165,13 +165,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "74f6dcda-401d-4fff-aeb9-585f89e0f76c",
-    "createdAt": "2026-06-17T05:10:53.484Z",
-    "updatedAt": "2026-06-17T05:10:53.484Z"
+    "id": "f31ad1e4-8275-4d16-99dc-3b7f81d56c07",
+    "createdAt": "2026-06-17T05:26:19.832Z",
+    "updatedAt": "2026-06-17T05:26:19.832Z"
   },
   {
-    "phaseId": "22bd4cad-5ed3-4f7d-85e7-0467a1e67562",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "1356ef2a-3e1d-4387-8c3c-65a7f3de5041",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "弱电系统",
     "weight": 20,
     "order": 10,
@@ -182,13 +182,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "1c31c50e-3b52-48b5-9826-29471807500f",
-    "createdAt": "2026-06-17T05:10:53.485Z",
-    "updatedAt": "2026-06-17T05:10:53.485Z"
+    "id": "eb5a3ab0-ded1-439f-9a2c-886e4801441f",
+    "createdAt": "2026-06-17T05:26:19.832Z",
+    "updatedAt": "2026-06-17T05:26:19.832Z"
   },
   {
-    "phaseId": "22bd4cad-5ed3-4f7d-85e7-0467a1e67562",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "1356ef2a-3e1d-4387-8c3c-65a7f3de5041",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "暖通空调",
     "weight": 20,
     "order": 11,
@@ -199,13 +199,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "bc7538dc-b3b5-4838-af92-b52cca7f967e",
-    "createdAt": "2026-06-17T05:10:53.485Z",
-    "updatedAt": "2026-06-17T05:10:53.485Z"
+    "id": "fb1b8386-7235-442c-9273-1cf31fefad06",
+    "createdAt": "2026-06-17T05:26:19.832Z",
+    "updatedAt": "2026-06-17T05:26:19.832Z"
   },
   {
-    "phaseId": "7e1125ae-082a-4beb-b057-14eba0257547",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "7cf4e4dd-23a2-4ad6-98c0-a82f10a78088",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "外墙装饰",
     "weight": 30,
     "order": 12,
@@ -216,13 +216,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "8ddc0be9-67e2-48e8-b7f0-7216da741a07",
-    "createdAt": "2026-06-17T05:10:53.486Z",
-    "updatedAt": "2026-06-17T05:10:53.486Z"
+    "id": "609b31ab-32de-4ef2-9df7-816c01b53ab7",
+    "createdAt": "2026-06-17T05:26:19.833Z",
+    "updatedAt": "2026-06-17T05:26:19.833Z"
   },
   {
-    "phaseId": "7e1125ae-082a-4beb-b057-14eba0257547",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "7cf4e4dd-23a2-4ad6-98c0-a82f10a78088",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "内墙抹灰",
     "weight": 25,
     "order": 13,
@@ -233,13 +233,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "61073478-8bee-4893-859d-63315c8a9e37",
-    "createdAt": "2026-06-17T05:10:53.486Z",
-    "updatedAt": "2026-06-17T05:10:53.486Z"
+    "id": "e301215e-1831-49ef-b28a-94533c71d80c",
+    "createdAt": "2026-06-17T05:26:19.833Z",
+    "updatedAt": "2026-06-17T05:26:19.833Z"
   },
   {
-    "phaseId": "7e1125ae-082a-4beb-b057-14eba0257547",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "7cf4e4dd-23a2-4ad6-98c0-a82f10a78088",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "地面铺装",
     "weight": 25,
     "order": 14,
@@ -250,13 +250,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "1ef51846-19f1-4648-b62f-cdfaea0823b8",
-    "createdAt": "2026-06-17T05:10:53.487Z",
-    "updatedAt": "2026-06-17T05:10:53.487Z"
+    "id": "e9f71154-633f-41be-bbef-a2133db24a0c",
+    "createdAt": "2026-06-17T05:26:19.834Z",
+    "updatedAt": "2026-06-17T05:26:19.834Z"
   },
   {
-    "phaseId": "7e1125ae-082a-4beb-b057-14eba0257547",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "7cf4e4dd-23a2-4ad6-98c0-a82f10a78088",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "门窗安装",
     "weight": 20,
     "order": 15,
@@ -267,13 +267,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "bd589d94-c5c9-426c-95cc-e538112e4de6",
-    "createdAt": "2026-06-17T05:10:53.488Z",
-    "updatedAt": "2026-06-17T05:10:53.488Z"
+    "id": "c47eaeac-776e-417a-b4c9-ff0566a6ebd0",
+    "createdAt": "2026-06-17T05:26:19.835Z",
+    "updatedAt": "2026-06-17T05:26:19.835Z"
   },
   {
-    "phaseId": "00bc9356-48f7-42cc-bfc1-089a93563cf2",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "b96e4f9e-f6f5-486e-93da-b6f2228bb102",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "道路绿化",
     "weight": 40,
     "order": 16,
@@ -284,13 +284,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "e6d6a7a5-61c5-449b-b7f4-6a8bddc76a02",
-    "createdAt": "2026-06-17T05:10:53.489Z",
-    "updatedAt": "2026-06-17T05:10:53.489Z"
+    "id": "791d8016-30b0-499a-9b52-9a31a64f1063",
+    "createdAt": "2026-06-17T05:26:19.836Z",
+    "updatedAt": "2026-06-17T05:26:19.836Z"
   },
   {
-    "phaseId": "00bc9356-48f7-42cc-bfc1-089a93563cf2",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "b96e4f9e-f6f5-486e-93da-b6f2228bb102",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "室外管网",
     "weight": 30,
     "order": 17,
@@ -301,13 +301,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "4e9ec1ba-4089-48fa-b933-1d183dbe9a05",
-    "createdAt": "2026-06-17T05:10:53.489Z",
-    "updatedAt": "2026-06-17T05:10:53.489Z"
+    "id": "ce0da80b-aa01-42b1-a10e-a4bd1af6e00f",
+    "createdAt": "2026-06-17T05:26:19.836Z",
+    "updatedAt": "2026-06-17T05:26:19.836Z"
   },
   {
-    "phaseId": "00bc9356-48f7-42cc-bfc1-089a93563cf2",
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "phaseId": "b96e4f9e-f6f5-486e-93da-b6f2228bb102",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "景观照明",
     "weight": 30,
     "order": 18,
@@ -318,13 +318,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "9c4d3e0e-f5e2-4361-9c56-da31fd72b175",
-    "createdAt": "2026-06-17T05:10:53.489Z",
-    "updatedAt": "2026-06-17T05:10:53.489Z"
+    "id": "50d29452-5ae1-45de-b596-627f1d675bf3",
+    "createdAt": "2026-06-17T05:26:19.837Z",
+    "updatedAt": "2026-06-17T05:26:19.837Z"
   },
   {
-    "phaseId": "37190365-016c-48c5-9174-8de25e9f2806",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "支护桩施工",
     "weight": 25,
     "order": 0,
@@ -335,13 +335,13 @@
     "actualEndDate": "2026-06-11",
     "progress": 100,
     "status": "completed",
-    "id": "b81ccb3a-ef5c-4910-a74b-451ffd24acf5",
-    "createdAt": "2026-06-17T05:10:53.493Z",
-    "updatedAt": "2026-06-17T05:10:53.493Z"
+    "id": "71d341d8-9e76-4dbd-abeb-61bcff79d0d3",
+    "createdAt": "2026-06-17T05:26:19.840Z",
+    "updatedAt": "2026-06-17T05:26:19.840Z"
   },
   {
-    "phaseId": "37190365-016c-48c5-9174-8de25e9f2806",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "土方开挖",
     "weight": 30,
     "order": 1,
@@ -352,13 +352,13 @@
     "actualEndDate": "2026-06-11",
     "progress": 100,
     "status": "completed",
-    "id": "711b30e1-759b-49b2-b978-9f49fe9e8b94",
-    "createdAt": "2026-06-17T05:10:53.493Z",
-    "updatedAt": "2026-06-17T05:10:53.493Z"
+    "id": "3c616d80-8f44-4b52-8352-052d3198d3ce",
+    "createdAt": "2026-06-17T05:26:19.841Z",
+    "updatedAt": "2026-06-17T05:26:19.841Z"
   },
   {
-    "phaseId": "37190365-016c-48c5-9174-8de25e9f2806",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "地下室底板",
     "weight": 25,
     "order": 2,
@@ -369,13 +369,13 @@
     "actualEndDate": null,
     "progress": 80,
     "status": "in_progress",
-    "id": "124b30db-eea9-4092-b329-9c7d15fadc89",
-    "createdAt": "2026-06-17T05:10:53.494Z",
-    "updatedAt": "2026-06-17T05:10:53.494Z"
+    "id": "ffa0e9ac-db80-44fb-a88a-2b19ebf06971",
+    "createdAt": "2026-06-17T05:26:19.841Z",
+    "updatedAt": "2026-06-17T05:26:19.841Z"
   },
   {
-    "phaseId": "37190365-016c-48c5-9174-8de25e9f2806",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "地下室结构",
     "weight": 20,
     "order": 3,
@@ -386,13 +386,13 @@
     "actualEndDate": null,
     "progress": 30,
     "status": "in_progress",
-    "id": "5e508129-6766-4d05-8b47-beff545e07ae",
-    "createdAt": "2026-06-17T05:10:53.494Z",
-    "updatedAt": "2026-06-17T05:10:53.494Z"
+    "id": "922adbf0-fefb-4ce0-be81-91e5b47d42cf",
+    "createdAt": "2026-06-17T05:26:19.842Z",
+    "updatedAt": "2026-06-17T05:26:19.842Z"
   },
   {
-    "phaseId": "372ebb39-5719-42f6-a504-db5a9b5ee51e",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "46fe80a2-6c01-40ed-9cdd-4297637c5897",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "1-5层结构",
     "weight": 20,
     "order": 4,
@@ -401,15 +401,15 @@
     "plannedEndDate": "2026-09-20",
     "actualStartDate": "2026-05-22",
     "actualEndDate": null,
-    "progress": 40,
+    "progress": 50,
     "status": "in_progress",
-    "id": "a1bc4603-26b5-42a8-bf72-2533bf694e02",
-    "createdAt": "2026-06-17T05:10:53.495Z",
-    "updatedAt": "2026-06-17T05:10:53.495Z"
+    "id": "54c68391-0c2c-49f9-b1ed-25abdccf10e4",
+    "createdAt": "2026-06-17T05:26:19.842Z",
+    "updatedAt": "2026-06-17T05:27:21.808Z"
   },
   {
-    "phaseId": "372ebb39-5719-42f6-a504-db5a9b5ee51e",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "46fe80a2-6c01-40ed-9cdd-4297637c5897",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "6-15层结构",
     "weight": 35,
     "order": 5,
@@ -420,13 +420,13 @@
     "actualEndDate": null,
     "progress": 10,
     "status": "in_progress",
-    "id": "b08b82c0-7c53-46a8-a9b9-14b1f0a7fd2e",
-    "createdAt": "2026-06-17T05:10:53.495Z",
-    "updatedAt": "2026-06-17T05:10:53.495Z"
+    "id": "3050079c-eb82-474c-810d-695311fe2499",
+    "createdAt": "2026-06-17T05:26:19.843Z",
+    "updatedAt": "2026-06-17T05:26:19.843Z"
   },
   {
-    "phaseId": "372ebb39-5719-42f6-a504-db5a9b5ee51e",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "46fe80a2-6c01-40ed-9cdd-4297637c5897",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "16-25层结构",
     "weight": 30,
     "order": 6,
@@ -437,13 +437,13 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "bd809252-d449-42d0-b6da-b8bacbdb3636",
-    "createdAt": "2026-06-17T05:10:53.496Z",
-    "updatedAt": "2026-06-17T05:10:53.496Z"
+    "id": "264b25b7-522d-41a0-856a-0203b1bff833",
+    "createdAt": "2026-06-17T05:26:19.844Z",
+    "updatedAt": "2026-06-17T05:26:19.844Z"
   },
   {
-    "phaseId": "372ebb39-5719-42f6-a504-db5a9b5ee51e",
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "phaseId": "46fe80a2-6c01-40ed-9cdd-4297637c5897",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "26-28层及屋面",
     "weight": 15,
     "order": 7,
@@ -454,8 +454,8 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "8638583b-6155-45d6-90ee-921860a74587",
-    "createdAt": "2026-06-17T05:10:53.497Z",
-    "updatedAt": "2026-06-17T05:10:53.497Z"
+    "id": "02a9b4d4-f657-450e-a7c8-c6604cc0d3da",
+    "createdAt": "2026-06-17T05:26:19.844Z",
+    "updatedAt": "2026-06-17T05:26:19.844Z"
   }
 ]

@@ -1,6 +1,6 @@
 [
   {
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "基础工程",
     "weight": 15,
     "plannedStartDate": "2026-06-16",
@@ -9,12 +9,12 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "68164254-2303-49e0-9190-076e2e52cfa6",
-    "createdAt": "2026-06-17T05:10:53.477Z",
-    "updatedAt": "2026-06-17T05:10:53.477Z"
+    "id": "a3ef6936-6006-429b-9609-8e340918349b",
+    "createdAt": "2026-06-17T05:26:19.824Z",
+    "updatedAt": "2026-06-17T05:26:19.846Z"
   },
   {
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "主体结构",
     "weight": 35,
     "plannedStartDate": "2026-08-16",
@@ -23,12 +23,12 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "9a828c9a-a011-4392-923a-168c3ed5c51e",
-    "createdAt": "2026-06-17T05:10:53.477Z",
-    "updatedAt": "2026-06-17T05:10:53.477Z"
+    "id": "45d2380d-bbb7-4926-8877-c2ee83ec71b5",
+    "createdAt": "2026-06-17T05:26:19.825Z",
+    "updatedAt": "2026-06-17T05:26:19.847Z"
   },
   {
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "机电安装",
     "weight": 20,
     "plannedStartDate": "2026-12-15",
@@ -37,12 +37,12 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "22bd4cad-5ed3-4f7d-85e7-0467a1e67562",
-    "createdAt": "2026-06-17T05:10:53.478Z",
-    "updatedAt": "2026-06-17T05:10:53.478Z"
+    "id": "1356ef2a-3e1d-4387-8c3c-65a7f3de5041",
+    "createdAt": "2026-06-17T05:26:19.825Z",
+    "updatedAt": "2026-06-17T05:26:19.847Z"
   },
   {
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "装饰装修",
     "weight": 20,
     "plannedStartDate": "2027-03-16",
@@ -51,12 +51,12 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "7e1125ae-082a-4beb-b057-14eba0257547",
-    "createdAt": "2026-06-17T05:10:53.478Z",
-    "updatedAt": "2026-06-17T05:10:53.478Z"
+    "id": "7cf4e4dd-23a2-4ad6-98c0-a82f10a78088",
+    "createdAt": "2026-06-17T05:26:19.826Z",
+    "updatedAt": "2026-06-17T05:26:19.848Z"
   },
   {
-    "projectId": "3c11300b-676a-42dd-aaec-67f57d91e914",
+    "projectId": "050f67a9-6492-4b47-9559-99195e9c787b",
     "name": "室外配套",
     "weight": 10,
     "plannedStartDate": "2027-05-16",
@@ -65,40 +65,40 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "00bc9356-48f7-42cc-bfc1-089a93563cf2",
-    "createdAt": "2026-06-17T05:10:53.479Z",
-    "updatedAt": "2026-06-17T05:10:53.479Z"
+    "id": "b96e4f9e-f6f5-486e-93da-b6f2228bb102",
+    "createdAt": "2026-06-17T05:26:19.826Z",
+    "updatedAt": "2026-06-17T05:26:19.849Z"
   },
   {
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "基础工程",
     "weight": 12,
     "plannedStartDate": "2026-05-17",
     "plannedEndDate": "2026-07-31",
     "actualStartDate": "2026-05-17",
     "actualEndDate": null,
-    "progress": 80,
+    "progress": 81,
     "status": "in_progress",
-    "id": "37190365-016c-48c5-9174-8de25e9f2806",
-    "createdAt": "2026-06-17T05:10:53.490Z",
-    "updatedAt": "2026-06-17T05:10:53.490Z"
+    "id": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "createdAt": "2026-06-17T05:26:19.838Z",
+    "updatedAt": "2026-06-17T05:26:19.849Z"
   },
   {
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "主体结构",
     "weight": 40,
     "plannedStartDate": "2026-08-01",
     "plannedEndDate": "2027-03-29",
     "actualStartDate": "2026-06-06",
     "actualEndDate": null,
-    "progress": 15,
+    "progress": 13.5,
     "status": "in_progress",
-    "id": "372ebb39-5719-42f6-a504-db5a9b5ee51e",
-    "createdAt": "2026-06-17T05:10:53.491Z",
-    "updatedAt": "2026-06-17T05:10:53.491Z"
+    "id": "46fe80a2-6c01-40ed-9cdd-4297637c5897",
+    "createdAt": "2026-06-17T05:26:19.838Z",
+    "updatedAt": "2026-06-17T05:27:21.809Z"
   },
   {
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "机电安装",
     "weight": 18,
     "plannedStartDate": "2027-03-30",
@@ -107,12 +107,12 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "7343d6af-83dc-4393-8cd7-e6455308d3c2",
-    "createdAt": "2026-06-17T05:10:53.491Z",
-    "updatedAt": "2026-06-17T05:10:53.491Z"
+    "id": "501bf755-546c-4eb2-89d8-46e53082809c",
+    "createdAt": "2026-06-17T05:26:19.839Z",
+    "updatedAt": "2026-06-17T05:26:19.839Z"
   },
   {
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "装饰装修",
     "weight": 20,
     "plannedStartDate": "2027-08-28",
@@ -121,12 +121,12 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "f3e51ae5-bf90-467c-a275-df7f41f6233f",
-    "createdAt": "2026-06-17T05:10:53.492Z",
-    "updatedAt": "2026-06-17T05:10:53.492Z"
+    "id": "791af79e-050d-46f8-b8e6-8c763f14fc77",
+    "createdAt": "2026-06-17T05:26:19.839Z",
+    "updatedAt": "2026-06-17T05:26:19.839Z"
   },
   {
-    "projectId": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "name": "室外配套",
     "weight": 10,
     "plannedStartDate": "2027-12-27",
@@ -135,8 +135,8 @@
     "actualEndDate": null,
     "progress": 0,
     "status": "pending",
-    "id": "85fd142a-8593-4a21-8413-fb67859fa55d",
-    "createdAt": "2026-06-17T05:10:53.492Z",
-    "updatedAt": "2026-06-17T05:10:53.492Z"
+    "id": "baec02ba-9e9e-4d76-b547-10b018fe6ae5",
+    "createdAt": "2026-06-17T05:26:19.840Z",
+    "updatedAt": "2026-06-17T05:26:19.840Z"
   }
 ]

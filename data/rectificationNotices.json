@@ -1,0 +1,23 @@
+[
+  {
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "taskId": "71d341d8-9e76-4dbd-abeb-61bcff79d0d3",
+    "title": "测试整改通知",
+    "description": "这是一条测试整改通知，请及时处理",
+    "deadline": null,
+    "priority": "normal",
+    "status": "replied",
+    "assigneeId": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "createdBy": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
+    "replyContent": "已完成整改，请检查",
+    "replyDate": "2026-06-17T05:27:22.058Z",
+    "replyBy": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "reviewDate": null,
+    "reviewResult": null,
+    "reviewedBy": null,
+    "id": "7ff0cb4d-9882-4ba4-8514-e219c8bc0590",
+    "createdAt": "2026-06-17T05:27:21.944Z",
+    "updatedAt": "2026-06-17T05:27:22.058Z"
+  }
+]

@@ -1955,11 +1955,15 @@ function showCreateNoticeModal() {
                 <input type="file" id="notice-photo-input" accept="image/*" multiple style="display:none;" onchange="handleNoticePhotoSelect(event)">
                 <div class="photo-preview-grid" id="notice-photo-preview-grid"></div>
             </div>
-            <div clas pe="bu
+            <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:20px;">
+                <button type="button" class="btn btn-default" onclick="closeModal()">取消</button>
+                <button type="submit" class="btn btn-primary">提交整改通知</button>
+            </div>
         </form>
     `, '发起整改通知');
     
     window.noticePhotos = [];
+    loadNoticeAssignees();
     
     document.getElementById('create-notice-form').addEventListener('submit', (e) => {
         e.preventDefault();

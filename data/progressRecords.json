@@ -1,0 +1,16 @@
+[
+  {
+    "taskId": "54c68391-0c2c-49f9-b1ed-25abdccf10e4",
+    "phaseId": "46fe80a2-6c01-40ed-9cdd-4297637c5897",
+    "recordDate": "2026-06-17",
+    "progress": 50,
+    "workContent": "API测试更新进度",
+    "weather": "",
+    "workers": 0,
+    "notes": "",
+    "reportedBy": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "id": "40451efe-d168-418f-918a-44d6bb7763b9",
+    "createdAt": "2026-06-17T05:27:21.807Z",
+    "updatedAt": "2026-06-17T05:27:21.807Z"
+  }
+]

@@ -13,9 +13,9 @@
     "managerId": "268927bd-3284-43d8-ae8d-631b5754e3c6",
     "ownerId": "53e8703a-1fd0-4b2a-8635-19d1544ebffe",
     "supervisorId": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
-    "id": "3c11300b-676a-42dd-aaec-67f57d91e914",
-    "createdAt": "2026-06-17T05:10:53.476Z",
-    "updatedAt": "2026-06-17T05:10:53.476Z"
+    "id": "050f67a9-6492-4b47-9559-99195e9c787b",
+    "createdAt": "2026-06-17T05:26:19.824Z",
+    "updatedAt": "2026-06-17T05:26:19.852Z"
   },
   {
     "name": "城东住宅小区3号楼",
@@ -26,13 +26,13 @@
     "actualStartDate": "2026-05-17",
     "actualEndDate": null,
     "budget": 120000000,
-    "progress": 18,
+    "progress": 14.32,
     "status": "in_progress",
     "managerId": "268927bd-3284-43d8-ae8d-631b5754e3c6",
     "ownerId": "53e8703a-1fd0-4b2a-8635-19d1544ebffe",
     "supervisorId": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
-    "id": "9d80ccfd-9ffa-4a9b-92b5-be1567337a17",
-    "createdAt": "2026-06-17T05:10:53.490Z",
-    "updatedAt": "2026-06-17T05:10:53.490Z"
+    "id": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "createdAt": "2026-06-17T05:26:19.837Z",
+    "updatedAt": "2026-06-17T05:26:19.852Z"
   }
 ]

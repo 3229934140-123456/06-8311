@@ -212,6 +212,34 @@ function initDemoData() {
     console.log(`    ✅ 创建任务: ${task.name} (进度: ${task.progress}%)`);
   }
   
+  // 重新计算所有阶段进度，确保与任务数据一致
+  console.log('\n🔄 同步阶段进度与任务数据...');
+  const allPhases = store.getAll('phases');
+  for (const phase of allPhases) {
+    const phaseTasks = store.find('tasks', t => t.phaseId === phase.id);
+    if (phaseTasks.length > 0) {
+      const totalWeight = phaseTasks.reduce((sum, t) => sum + (t.weight || 1), 0);
+      const weightedProgress = phaseTasks.reduce((sum, t) => sum + (t.progress || 0) * (t.weight || 1), 0);
+      const phaseProgress = totalWeight > 0 ? Math.round(weightedProgress / totalWeight * 100) / 100 : 0;
+      store.update('phases', phase.id, { progress: phaseProgress });
+      console.log(`  ✅ 同步阶段: ${phase.name} = ${phaseProgress.toFixed(1)}%`);
+    }
+  }
+  
+  // 重新计算所有项目总进度
+  console.log('\n🔄 同步项目总进度...');
+  const allProjects = store.getAll('projects');
+  for (const project of allProjects) {
+    const projectPhases = store.find('phases', p => p.projectId === project.id);
+    if (projectPhases.length > 0) {
+      const totalWeight = projectPhases.reduce((sum, p) => sum + (p.weight || 1), 0);
+      const weightedProgress = projectPhases.reduce((sum, p) => sum + (p.progress || 0) * (p.weight || 1), 0);
+      const projectProgress = totalWeight > 0 ? Math.round(weightedProgress / totalWeight * 100) / 100 : 0;
+      store.update('projects', project.id, { progress: projectProgress });
+      console.log(`  ✅ 同步项目: ${project.name} = ${projectProgress.toFixed(1)}%`);
+    }
+  }
+  
   console.log('\n🎉 示例数据创建完成！');
 }
 
