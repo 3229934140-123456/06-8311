@@ -8,10 +8,10 @@
     "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
     "taskId": "71d341d8-9e76-4dbd-abeb-61bcff79d0d3",
     "rectificationNoticeId": "7ff0cb4d-9882-4ba4-8514-e219c8bc0590",
-    "read": false,
+    "read": true,
     "id": "4e841835-73c2-423d-b7a6-bbc06f6c534c",
     "createdAt": "2026-06-17T05:27:21.945Z",
-    "updatedAt": "2026-06-17T05:27:21.945Z"
+    "updatedAt": "2026-06-17T05:44:14.330Z"
   },
   {
     "userId": "268927bd-3284-43d8-ae8d-631b5754e3c6",
@@ -46,9 +46,85 @@
     "message": "您发出的整改通知单\"测试整改通知\"已收到回复。",
     "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
     "rectificationNoticeId": "7ff0cb4d-9882-4ba4-8514-e219c8bc0590",
-    "read": false,
+    "read": true,
     "id": "0edf3eb7-69e6-497f-b6b0-745a8e309a41",
     "createdAt": "2026-06-17T05:27:22.059Z",
-    "updatedAt": "2026-06-17T05:27:22.059Z"
+    "updatedAt": "2026-06-17T05:44:14.193Z"
+  },
+  {
+    "userId": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "type": "rectification",
+    "title": "整改通知",
+    "message": "您收到新的整改通知单: \"测试审核流程通知\"",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "taskId": "71d341d8-9e76-4dbd-abeb-61bcff79d0d3",
+    "rectificationNoticeId": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "read": true,
+    "id": "c925d188-51ba-4de6-9c9b-855a04f17064",
+    "createdAt": "2026-06-17T05:44:13.713Z",
+    "updatedAt": "2026-06-17T05:44:14.330Z"
+  },
+  {
+    "userId": "268927bd-3284-43d8-ae8d-631b5754e3c6",
+    "type": "rectification",
+    "title": "监理发出整改通知",
+    "message": "项目\"城东住宅小区3号楼\"收到监理整改通知单: \"测试审核流程通知\"",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "taskId": "71d341d8-9e76-4dbd-abeb-61bcff79d0d3",
+    "rectificationNoticeId": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "read": true,
+    "id": "fb4ebeac-4263-4f49-a138-89d19254f9d6",
+    "createdAt": "2026-06-17T05:44:13.713Z",
+    "updatedAt": "2026-06-17T05:44:14.071Z"
+  },
+  {
+    "userId": "268927bd-3284-43d8-ae8d-631b5754e3c6",
+    "type": "rectification_reply",
+    "title": "整改回复已提交",
+    "message": "整改通知单\"测试审核流程通知\"已提交回复，请审核。",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "rectificationNoticeId": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "read": true,
+    "id": "4a1d154d-6d3c-4e90-b48b-90b00a73c08a",
+    "createdAt": "2026-06-17T05:44:13.716Z",
+    "updatedAt": "2026-06-17T05:44:14.072Z"
+  },
+  {
+    "userId": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
+    "type": "rectification_reply",
+    "title": "整改回复已提交",
+    "message": "您发出的整改通知单\"测试审核流程通知\"已收到回复。",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "rectificationNoticeId": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "read": true,
+    "id": "ab102575-d406-495c-b5a5-9040f9ec4fc6",
+    "createdAt": "2026-06-17T05:44:13.716Z",
+    "updatedAt": "2026-06-17T05:44:13.722Z"
+  },
+  {
+    "userId": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "type": "rectification_review",
+    "title": "整改审核通过",
+    "message": "您回复的整改通知单\"测试审核流程通知\"审核通过。",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "rectificationNoticeId": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "read": true,
+    "id": "2108d2ec-60af-4316-9a68-6ecaa8ce43dc",
+    "createdAt": "2026-06-17T05:44:13.725Z",
+    "updatedAt": "2026-06-17T05:44:14.321Z"
+  },
+  {
+    "userId": "268927bd-3284-43d8-ae8d-631b5754e3c6",
+    "type": "rectification_review",
+    "title": "整改审核通过",
+    "message": "整改通知单\"测试审核流程通知\"审核通过。",
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "rectificationNoticeId": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "read": true,
+    "id": "7d965b81-8157-479c-8b89-896594fdee1a",
+    "createdAt": "2026-06-17T05:44:13.725Z",
+    "updatedAt": "2026-06-17T05:44:14.062Z"
   }
 ]

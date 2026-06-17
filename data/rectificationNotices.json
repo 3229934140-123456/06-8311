@@ -19,5 +19,27 @@
     "id": "7ff0cb4d-9882-4ba4-8514-e219c8bc0590",
     "createdAt": "2026-06-17T05:27:21.944Z",
     "updatedAt": "2026-06-17T05:27:22.058Z"
+  },
+  {
+    "projectId": "25a59ccc-528a-46d3-9b2a-f368b26abee8",
+    "phaseId": "7b27f4ab-b4b8-42a1-93b1-f4e14ba9c3c9",
+    "taskId": "71d341d8-9e76-4dbd-abeb-61bcff79d0d3",
+    "title": "测试审核流程通知",
+    "description": "这是测试通知，用于验证审核后留在通知中心",
+    "deadline": null,
+    "priority": "normal",
+    "status": "approved",
+    "assigneeId": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "createdBy": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
+    "replyContent": "已完成全部整改工作，请监理审核",
+    "replyDate": "2026-06-17T05:44:13.715Z",
+    "replyBy": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "reviewDate": "2026-06-17T05:44:13.724Z",
+    "reviewResult": "pass",
+    "reviewedBy": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
+    "id": "d7180a5a-6096-4a0b-a91c-51164a5d8c7b",
+    "createdAt": "2026-06-17T05:44:13.712Z",
+    "updatedAt": "2026-06-17T05:44:13.724Z",
+    "reviewComment": "整改合格，通过审核"
   }
 ]

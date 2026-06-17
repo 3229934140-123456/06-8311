@@ -834,6 +834,13 @@ function loadNotificationsPage() {
 
 function markNotificationRead(id) {
     apiRequest(`/notifications/${id}/read`, { method: 'POST' }).then(() => {
+        if (window.lastNotifications) {
+            const idx = window.lastNotifications.findIndex(n => n.id === id);
+            if (idx !== -1) {
+                window.lastNotifications[idx].read = true;
+            }
+        }
+        
         updateNotificationBadge();
         
         const notification = (window.lastNotifications || []).find(n => n.id === id);
@@ -867,6 +874,9 @@ function markNotificationRead(id) {
 
 function markAllRead() {
     apiRequest('/notifications/read-all', { method: 'POST' }).then(() => {
+        if (window.lastNotifications) {
+            window.lastNotifications.forEach(n => n.read = true);
+        }
         updateNotificationBadge();
         loadNotificationsPage();
         showToast('已全部标为已读', 'success');
@@ -2338,7 +2348,14 @@ function showReviewNoticeModal(noticeId) {
             body: JSON.stringify(formData)
         }).then(() => {
             closeModal();
-            loadRectificationPage();
+            updateNotificationBadge();
+            
+            if (currentPage === 'notifications') {
+                loadNotificationsPage();
+            } else {
+                loadRectificationPage();
+            }
+            
             showToast('审核完成', 'success');
         }).catch(err => {
             showToast(err.message, 'error');
