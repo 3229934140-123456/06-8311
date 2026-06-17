@@ -403,6 +403,7 @@ function getUserName(userId) {
 }
 
 function openProjectDetail(projectId) {
+    window.currentProjectId = projectId;
     apiRequest(`/projects/${projectId}`).then(project => {
         const canEdit = currentUser.role === 'project_manager';
         
@@ -493,6 +494,8 @@ function openProjectDetail(projectId) {
                 }
             });
         });
+
+        setTimeout(() => loadGanttChart(projectId), 100);
     }).catch(err => {
         showToast(err.message, 'error');
     });
@@ -782,7 +785,8 @@ function loadNotificationsPage() {
     const content = document.getElementById('content-area');
     content.innerHTML = '<div class="card"><div style="text-align:center;padding:40px;">加载中...</div></div>';
     
-    apiRequest('/notifications').then(notifications => {
+    const loadNotifications = () => {
+        apiRequest('/notifications').then(notifications => {
         content.innerHTML = `
             <div class="card">
                 <div class="card-header">
@@ -815,6 +819,15 @@ function loadNotificationsPage() {
     }).catch(err => {
         content.innerHTML = `<div class="card"><div style="color:#f5222d;text-align:center;padding:40px;">加载失败: ${err.message}</div></div>`;
     });
+    };
+
+    if (currentUser.role === 'project_manager') {
+        apiRequest('/tasks/check-delays', { method: 'POST' })
+            .then(() => loadNotifications())
+            .catch(() => loadNotifications());
+    } else {
+        loadNotifications();
+    }
 }
 
 function markNotificationRead(id) {
@@ -1167,8 +1180,33 @@ function exportCurrentProjectLog() {
 
 function exportProjectLog(projectId) {
     const token = localStorage.getItem('token');
-    window.open(`${API_BASE}/export/project/${projectId}/log?token=${token}`, '_blank');
     showToast('正在导出施工日志...', 'info');
+    fetch(`${API_BASE}/export/project/${projectId}/log`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => { throw new Error(err.error || '导出失败'); });
+        }
+        const filename = decodeURIComponent(
+            response.headers.get('Content-Disposition')?.match(/filename="?([^"]+)"?/)?.[1] || '施工日志.xlsx'
+        );
+        return response.blob().then(blob => ({ blob, filename }));
+    })
+    .then(({ blob, filename }) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('导出成功', 'success');
+    })
+    .catch(err => {
+        showToast('导出失败: ' + err.message, 'error');
+    });
 }
 
 function showCreateProjectModal() {
@@ -1369,8 +1407,14 @@ function showCreatePhaseModal(projectId) {
 }
 
 function showEditPhaseModal(phaseId) {
-    apiRequest('/projects').then(() => {
-        const phase = store.phases?.find(p => p.id === phaseId);
+    const projectId = window.currentProjectId;
+    if (!projectId) {
+        showToast('无法确定所属项目', 'error');
+        return;
+    }
+
+    apiRequest(`/projects/${projectId}`).then(project => {
+        const phase = project.phases?.find(p => p.id === phaseId);
         if (!phase) {
             showToast('工期不存在', 'error');
             return;
@@ -1389,11 +1433,11 @@ function showEditPhaseModal(phaseId) {
                 <div class="form-row">
                     <div class="form-group">
                         <label>计划开始日期 *</label>
-                        <input type="date" name="plannedStartDate" required value="${phase.plannedStartDate}">
+                        <input type="date" name="plannedStartDate" required value="${phase.plannedStartDate || ''}">
                     </div>
                     <div class="form-group">
                         <label>计划完成日期 *</label>
-                        <input type="date" name="plannedEndDate" required value="${phase.plannedEndDate}">
+                        <input type="date" name="plannedEndDate" required value="${phase.plannedEndDate || ''}">
                     </div>
                 </div>
                 <div class="form-row">
@@ -1428,6 +1472,7 @@ function showEditPhaseModal(phaseId) {
             }).then(() => {
                 closeModal();
                 showToast('工期更新成功', 'success');
+                openProjectDetail(window.currentProjectId);
             }).catch(err => {
                 showToast(err.message, 'error');
             });
@@ -1509,6 +1554,7 @@ function showCreateTaskModal(phaseId) {
             }).then(() => {
                 closeModal();
                 showToast('工序添加成功', 'success');
+                openProjectDetail(window.currentProjectId);
             }).catch(err => {
                 showToast(err.message, 'error');
             });
@@ -1577,6 +1623,7 @@ function showEditTaskModal(taskId) {
                 }).then(() => {
                     closeModal();
                     showToast('工序更新成功', 'success');
+                    openProjectDetail(window.currentProjectId);
                 }).catch(err => {
                     showToast(err.message, 'error');
                 });
@@ -1867,8 +1914,14 @@ function showCreateNoticeModal() {
             </div>
             <div class="form-group">
                 <label>选择工序</label>
-                <select name="taskId" id="notice-task-select">
+                <select name="taskId" id="notice-task-select" onchange="onNoticeTaskChange(this.value)">
                     <option value="">请选择工序</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>指定班组长</label>
+                <select name="assigneeId" id="notice-assignee-select">
+                    <option value="">请选择班组长</option>
                 </select>
             </div>
             <div class="form-group">
@@ -1902,10 +1955,7 @@ function showCreateNoticeModal() {
                 <input type="file" id="notice-photo-input" accept="image/*" multiple style="display:none;" onchange="handleNoticePhotoSelect(event)">
                 <div class="photo-preview-grid" id="notice-photo-preview-grid"></div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="closeModal()">取消</button>
-                <button type="submit" class="btn btn-warning">发起整改</button>
-            </div>
+            <div clas pe="bu
         </form>
     `, '发起整改通知');
     
@@ -1960,6 +2010,8 @@ function loadProjectPhases(projectId) {
     if (!projectId) {
         document.getElementById('notice-phase-select').innerHTML = '<option value="">请选择阶段</option>';
         document.getElementById('notice-task-select').innerHTML = '<option value="">请选择工序</option>';
+        document.getElementById('notice-assignee-select').value = '';
+        window.noticePhaseTasks = [];
         return;
     }
     
@@ -1969,6 +2021,8 @@ function loadProjectPhases(projectId) {
             ${project.phases.map(p => `<option value="${p.id}">${p.name}</option>`).join('')}
         `;
         document.getElementById('notice-task-select').innerHTML = '<option value="">请选择工序</option>';
+        document.getElementById('notice-assignee-select').value = '';
+        window.noticePhaseTasks = [];
     }).catch(err => {
         showToast(err.message, 'error');
     });
@@ -1977,17 +2031,47 @@ function loadProjectPhases(projectId) {
 function loadPhaseTasks(phaseId) {
     if (!phaseId) {
         document.getElementById('notice-task-select').innerHTML = '<option value="">请选择工序</option>';
+        document.getElementById('notice-assignee-select').value = '';
+        window.noticePhaseTasks = [];
         return;
     }
     
     apiRequest(`/tasks?phaseId=${phaseId}`).then(tasks => {
+        window.noticePhaseTasks = tasks;
         document.getElementById('notice-task-select').innerHTML = `
             <option value="">请选择工序</option>
             ${tasks.map(t => `<option value="${t.id}">${t.name}</option>`).join('')}
         `;
+        document.getElementById('notice-assignee-select').value = '';
     }).catch(err => {
         showToast(err.message, 'error');
     });
+}
+
+function loadNoticeAssignees() {
+    apiRequest('/auth/users').then(users => {
+        const foremen = users.filter(u => u.role === 'foreman');
+        const select = document.getElementById('notice-assignee-select');
+        if (!select) return;
+        const currentVal = select.value;
+        select.innerHTML = `
+            <option value="">请选择班组长</option>
+            ${foremen.map(f => `<option value="${f.id}">${f.name}</option>`).join('')}
+        `;
+        if (currentVal) select.value = currentVal;
+    }).catch(err => {
+        showToast(err.message, 'error');
+    });
+}
+
+function onNoticeTaskChange(taskId) {
+    const tasks = window.noticePhaseTasks || [];
+    const task = tasks.find(t => t.id === taskId);
+    const select = document.getElementById('notice-assignee-select');
+    if (!select) return;
+    if (task && task.assigneeId) {
+        select.value = task.assigneeId;
+    }
 }
 
 function submitNotice() {

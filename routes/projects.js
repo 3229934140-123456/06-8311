@@ -80,16 +80,27 @@ router.get('/:id', authenticateToken, (req, res) => {
   
   const phases = store.find('phases', p => p.projectId === project.id)
     .sort((a, b) => new Date(a.plannedStartDate) - new Date(b.plannedStartDate))
-    .map(phase => ({
-      ...phase,
-      isDelayed: checkPhaseDelay(phase),
-      tasks: store.find('tasks', t => t.phaseId === phase.id)
+    .map(phase => {
+      const tasks = store.find('tasks', t => t.phaseId === phase.id)
         .sort((a, b) => (a.order || 0) - (b.order || 0))
         .map(task => ({
           ...task,
           assignee: task.assigneeId ? store.getById('users', task.assigneeId) : null
-        }))
-    }));
+        }));
+
+      let phaseProgress = phase.progress || 0;
+      if (tasks.length > 0) {
+        const totalTaskWeight = tasks.reduce((sum, t) => sum + (t.weight || 1), 0);
+        phaseProgress = tasks.reduce((sum, t) => sum + (t.progress || 0) * (t.weight || 1), 0) / totalTaskWeight;
+      }
+
+      const recalculatedPhase = { ...phase, progress: phaseProgress };
+      return {
+        ...recalculatedPhase,
+        isDelayed: checkPhaseDelay(recalculatedPhase),
+        tasks
+      };
+    });
   
   const progress = calculateProjectProgress(project.id);
   const isDelayed = phases.some(p => p.isDelayed);

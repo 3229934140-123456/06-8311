@@ -51,6 +51,13 @@ function checkAndCreateDelayNotification(taskId, task) {
   const plannedEnd = new Date(task.plannedEndDate);
   plannedEnd.setHours(0, 0, 0, 0);
   
+  const phase = store.getById('phases', task.phaseId);
+  if (!phase) return;
+  const project = store.getById('projects', phase.projectId);
+  if (!project) return;
+  const manager = store.getById('users', project.managerId);
+  if (!manager) return;
+
   const timeDiff = plannedEnd - today;
   const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   
@@ -60,21 +67,47 @@ function checkAndCreateDelayNotification(taskId, task) {
     );
     
     if (!existingNotification) {
-      const phase = store.getById('phases', task.phaseId);
-      const project = store.getById('projects', phase.projectId);
-      const manager = store.getById('users', project.managerId);
+      store.create('notifications', {
+        userId: manager.id,
+        type: 'delay',
+        title: '工期延误预警',
+        message: `任务"${task.name}"已超出计划完成日期${Math.abs(daysDiff)}天，请及时处理。`,
+        projectId: project.id,
+        phaseId: phase.id,
+        taskId: taskId,
+        read: false
+      });
+    }
+  }
+
+  if (task.plannedStartDate) {
+    const plannedStart = new Date(task.plannedStartDate);
+    plannedStart.setHours(0, 0, 0, 0);
+    
+    const totalDuration = (plannedEnd - plannedStart) / (1000 * 60 * 60 * 24);
+    const elapsedDuration = (today - plannedStart) / (1000 * 60 * 60 * 24);
+    
+    if (elapsedDuration > 0 && totalDuration > 0) {
+      const expectedProgress = Math.min(100, (elapsedDuration / totalDuration) * 100);
+      const progressLag = expectedProgress - (task.progress || 0);
       
-      if (manager) {
-        store.create('notifications', {
-          userId: manager.id,
-          type: 'delay',
-          title: '工期延误预警',
-          message: `任务"${task.name}"已超出计划完成日期${Math.abs(daysDiff)}天，请及时处理。`,
-          projectId: project.id,
-          phaseId: phase.id,
-          taskId: taskId,
-          read: false
-        });
+      if (progressLag > 10) {
+        const existingNotification = store.findOne('notifications', n => 
+          n.taskId === taskId && n.type === 'progress_lag' && n.read === false
+        );
+        
+        if (!existingNotification) {
+          store.create('notifications', {
+            userId: manager.id,
+            type: 'progress_lag',
+            title: '进度滞后预警',
+            message: `任务"${task.name}"进度滞后，当前进度${task.progress}%，预期应达${Math.round(expectedProgress)}%，差距${Math.round(progressLag)}%，请关注。`,
+            projectId: project.id,
+            phaseId: phase.id,
+            taskId: taskId,
+            read: false
+          });
+        }
       }
     }
   }
@@ -219,6 +252,84 @@ router.post('/:id/assign', authenticateToken, requireRole('project_manager'), (r
   });
   
   res.json(updated);
+});
+
+router.post('/check-delays', authenticateToken, requireRole('project_manager'), (req, res) => {
+  const tasks = store.find('tasks', t => t.progress < 100 && t.plannedEndDate);
+  let delayCount = 0;
+  let lagCount = 0;
+
+  tasks.forEach(task => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const plannedEnd = new Date(task.plannedEndDate);
+    plannedEnd.setHours(0, 0, 0, 0);
+    const daysDiff = Math.ceil((plannedEnd - today) / (1000 * 60 * 60 * 24));
+
+    if (daysDiff < 0) {
+      const existing = store.findOne('notifications', n =>
+        n.taskId === task.id && n.type === 'delay' && n.read === false
+      );
+      if (!existing) {
+        const phase = store.getById('phases', task.phaseId);
+        if (!phase) return;
+        const project = store.getById('projects', phase.projectId);
+        if (!project) return;
+        const manager = store.getById('users', project.managerId);
+        if (!manager) return;
+        store.create('notifications', {
+          userId: manager.id,
+          type: 'delay',
+          title: '工期延误预警',
+          message: `任务"${task.name}"已超出计划完成日期${Math.abs(daysDiff)}天，请及时处理。`,
+          projectId: project.id,
+          phaseId: phase.id,
+          taskId: task.id,
+          read: false
+        });
+        delayCount++;
+      }
+    }
+
+    if (task.plannedStartDate) {
+      const plannedStart = new Date(task.plannedStartDate);
+      plannedStart.setHours(0, 0, 0, 0);
+      const totalDuration = (plannedEnd - plannedStart) / (1000 * 60 * 60 * 24);
+      const elapsedDuration = (today - plannedStart) / (1000 * 60 * 60 * 24);
+
+      if (elapsedDuration > 0 && totalDuration > 0) {
+        const expectedProgress = Math.min(100, (elapsedDuration / totalDuration) * 100);
+        const progressLag = expectedProgress - (task.progress || 0);
+
+        if (progressLag > 10) {
+          const existing = store.findOne('notifications', n =>
+            n.taskId === task.id && n.type === 'progress_lag' && n.read === false
+          );
+          if (!existing) {
+            const phase = store.getById('phases', task.phaseId);
+            if (!phase) return;
+            const project = store.getById('projects', phase.projectId);
+            if (!project) return;
+            const manager = store.getById('users', project.managerId);
+            if (!manager) return;
+            store.create('notifications', {
+              userId: manager.id,
+              type: 'progress_lag',
+              title: '进度滞后预警',
+              message: `任务"${task.name}"进度滞后，当前进度${task.progress}%，预期应达${Math.round(expectedProgress)}%，差距${Math.round(progressLag)}%，请关注。`,
+              projectId: project.id,
+              phaseId: phase.id,
+              taskId: task.id,
+              read: false
+            });
+            lagCount++;
+          }
+        }
+      }
+    }
+  });
+
+  res.json({ delayCount, lagCount, message: `检查完成：新增${delayCount}条工期延误预警，${lagCount}条进度滞后预警` });
 });
 
 router.get('/my/tasks', authenticateToken, requireRole('foreman'), (req, res) => {

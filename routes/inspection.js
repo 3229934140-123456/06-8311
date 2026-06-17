@@ -101,6 +101,14 @@ router.post('/', authenticateToken, requireRole('supervisor'), upload.array('pho
     return res.status(404).json({ error: '项目不存在' });
   }
   
+  let resolvedAssigneeId = assigneeId || null;
+  if (!resolvedAssigneeId && taskId) {
+    const task = store.getById('tasks', taskId);
+    if (task && task.assigneeId) {
+      resolvedAssigneeId = task.assigneeId;
+    }
+  }
+  
   const notice = store.create('rectificationNotices', {
     projectId,
     phaseId: phaseId || null,
@@ -110,7 +118,7 @@ router.post('/', authenticateToken, requireRole('supervisor'), upload.array('pho
     deadline: deadline || null,
     priority: priority || 'normal',
     status: 'pending',
-    assigneeId: assigneeId || null,
+    assigneeId: resolvedAssigneeId,
     createdBy: req.user.id,
     replyContent: null,
     replyDate: null,
@@ -134,9 +142,9 @@ router.post('/', authenticateToken, requireRole('supervisor'), upload.array('pho
     });
   }
   
-  if (assigneeId) {
+  if (resolvedAssigneeId) {
     store.create('notifications', {
-      userId: assigneeId,
+      userId: resolvedAssigneeId,
       type: 'rectification',
       title: '整改通知',
       message: `您收到新的整改通知单: "${title}"`,

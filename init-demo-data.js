@@ -27,12 +27,10 @@ function initDemoData() {
   const projects = store.getAll('projects');
   if (projects.length > 0) {
     console.log('⚠️  已存在项目数据，跳过初始化');
-    console.log('\n请访问 http://localhost:3000 查看效果');
     return;
   }
   
-  const project1 = {
-    id: uuidv4(),
+  const createdProject1 = store.create('projects', {
     name: '市民文化中心项目',
     description: '总建筑面积25000平方米，包含图书馆、展览馆、多功能厅等',
     location: '市中心区文化广场',
@@ -45,10 +43,8 @@ function initDemoData() {
     status: 'pending',
     managerId: admin.id,
     ownerId: owner1.id,
-    supervisorId: supervisor1.id,
-    createdAt: new Date().toISOString()
-  };
-  const createdProject1 = store.create('projects', project1);
+    supervisorId: supervisor1.id
+  });
   console.log('✅ 创建项目: 市民文化中心项目');
   
   const phases = [
@@ -64,9 +60,8 @@ function initDemoData() {
   
   for (const phase of phases) {
     const phaseEndDate = addDays(phaseStartDate, phase.days);
-    const createdPhase = {
-      id: uuidv4(),
-      projectId: project1.id,
+    const createdPhase = store.create('phases', {
+      projectId: createdProject1.id,
       name: phase.name,
       weight: phase.weight,
       plannedStartDate: formatDate(phaseStartDate),
@@ -74,10 +69,8 @@ function initDemoData() {
       actualStartDate: null,
       actualEndDate: null,
       progress: 0,
-      status: 'pending',
-      createdAt: new Date().toISOString()
-    };
-    store.create('phases', createdPhase);
+      status: 'pending'
+    });
     createdPhases.push(createdPhase);
     console.log(`  ✅ 创建阶段: ${phase.name}`);
     
@@ -117,10 +110,9 @@ function initDemoData() {
     const taskStartDate = new Date(phase.plannedStartDate);
     const taskEndDate = addDays(taskStartDate, task.days);
     
-    const createdTask = {
-      id: uuidv4(),
+    store.create('tasks', {
       phaseId: phase.id,
-      projectId: project1.id,
+      projectId: createdProject1.id,
       name: task.name,
       weight: task.weight,
       order: i,
@@ -130,15 +122,12 @@ function initDemoData() {
       actualStartDate: null,
       actualEndDate: null,
       progress: 0,
-      status: 'pending',
-      createdAt: new Date().toISOString()
-    };
-    store.create('tasks', createdTask);
+      status: 'pending'
+    });
     console.log(`    ✅ 创建任务: ${task.name} (分配给: ${task.assignee.name})`);
   }
   
-  const project2 = {
-    id: uuidv4(),
+  const createdProject2 = store.create('projects', {
     name: '城东住宅小区3号楼',
     description: '高层住宅，地上28层，地下2层，总建筑面积32000平方米',
     location: '城东区新兴路',
@@ -151,10 +140,8 @@ function initDemoData() {
     status: 'in_progress',
     managerId: admin.id,
     ownerId: owner1.id,
-    supervisorId: supervisor1.id,
-    createdAt: new Date().toISOString()
-  };
-  store.create('projects', project2);
+    supervisorId: supervisor1.id
+  });
   console.log('\n✅ 创建项目: 城东住宅小区3号楼');
   
   const phases2 = [
@@ -172,9 +159,8 @@ function initDemoData() {
     const phase = phases2[i];
     const phaseEndDate = addDays(phaseStartDate2, phase.days);
     
-    const createdPhase = {
-      id: uuidv4(),
-      projectId: project2.id,
+    const createdPhase = store.create('phases', {
+      projectId: createdProject2.id,
       name: phase.name,
       weight: phase.weight,
       plannedStartDate: formatDate(phaseStartDate2),
@@ -182,10 +168,8 @@ function initDemoData() {
       actualStartDate: phase.actualStart !== undefined ? formatDate(addDays(today, phase.actualStart)) : null,
       actualEndDate: null,
       progress: phase.progress,
-      status: phase.progress >= 100 ? 'completed' : (phase.progress > 0 ? 'in_progress' : 'pending'),
-      createdAt: new Date().toISOString()
-    };
-    store.create('phases', createdPhase);
+      status: phase.progress >= 100 ? 'completed' : (phase.progress > 0 ? 'in_progress' : 'pending')
+    });
     createdPhases2.push(createdPhase);
     console.log(`  ✅ 创建阶段: ${phase.name} (进度: ${phase.progress}%)`);
     
@@ -211,10 +195,9 @@ function initDemoData() {
     const taskStartDate = new Date(phase.plannedStartDate);
     const taskEndDate = addDays(taskStartDate, task.days);
     
-    const createdTask = {
-      id: uuidv4(),
+    store.create('tasks', {
       phaseId: phase.id,
-      projectId: project2.id,
+      projectId: createdProject2.id,
       name: task.name,
       weight: task.weight,
       order: i,
@@ -224,18 +207,12 @@ function initDemoData() {
       actualStartDate: task.progress > 0 ? formatDate(addDays(today, -25)) : null,
       actualEndDate: task.progress >= 100 ? formatDate(addDays(today, -5)) : null,
       progress: task.progress,
-      status: task.progress >= 100 ? 'completed' : (task.progress > 0 ? 'in_progress' : 'pending'),
-      createdAt: new Date().toISOString()
-    };
-    store.create('tasks', createdTask);
+      status: task.progress >= 100 ? 'completed' : (task.progress > 0 ? 'in_progress' : 'pending')
+    });
     console.log(`    ✅ 创建任务: ${task.name} (进度: ${task.progress}%)`);
   }
   
   console.log('\n🎉 示例数据创建完成！');
-  console.log(`\n项目1: 市民文化中心项目 (新建项目，未开始)`);
-  console.log(`项目2: 城东住宅小区3号楼 (已开工30天，进行中)`);
-  console.log(`\n请访问 http://localhost:3000 查看效果`);
-  console.log(`默认账号: admin / 123456`);
 }
 
 initDemoData();
