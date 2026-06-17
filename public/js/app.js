@@ -18,6 +18,7 @@ const roleNavItems = {
     ],
     'foreman': [
         { id: 'my-tasks', icon: '📝', label: '我的任务' },
+        { id: 'rectification', icon: '⚠️', label: '整改通知' },
         { id: 'notifications', icon: '🔔', label: '通知中心' }
     ],
     'supervisor': [
@@ -787,6 +788,7 @@ function loadNotificationsPage() {
     
     const loadNotifications = () => {
         apiRequest('/notifications').then(notifications => {
+        window.lastNotifications = notifications;
         content.innerHTML = `
             <div class="card">
                 <div class="card-header">
@@ -833,6 +835,30 @@ function loadNotificationsPage() {
 function markNotificationRead(id) {
     apiRequest(`/notifications/${id}/read`, { method: 'POST' }).then(() => {
         updateNotificationBadge();
+        
+        const notification = (window.lastNotifications || []).find(n => n.id === id);
+        if (notification) {
+            const noticeTypes = ['rectification', 'rectification_reply', 'rectification_review'];
+            if (noticeTypes.includes(notification.type) && notification.rectificationNoticeId) {
+                closeModal();
+                setTimeout(() => openNoticeDetail(notification.rectificationNoticeId), 50);
+                return;
+            }
+            
+            const taskTypes = ['delay', 'progress_lag', 'completion', 'assignment'];
+            if (taskTypes.includes(notification.type) && notification.taskId) {
+                closeModal();
+                setTimeout(() => openTaskDetail(notification.taskId), 50);
+                return;
+            }
+            
+            if (notification.projectId) {
+                closeModal();
+                setTimeout(() => openProjectDetail(notification.projectId), 50);
+                return;
+            }
+        }
+        
         loadNotificationsPage();
     }).catch(err => {
         showToast(err.message, 'error');
@@ -980,11 +1006,16 @@ function renderNoticeCard(notice) {
 }
 
 function openNoticeDetail(noticeId) {
+    window.replyPhotos = window.replyPhotos || [];
+    
     apiRequest(`/inspection/${noticeId}`).then(notice => {
         const isMine = currentUser.role === 'foreman' && notice.assigneeId === currentUser.id;
         const isCreator = currentUser.role === 'supervisor' && notice.createdBy === currentUser.id;
         const canReply = isMine && notice.status === 'pending';
         const canReview = isCreator && notice.status === 'replied';
+        
+        const problemPhotos = notice.photos?.filter(p => p.description === '整改问题照片') || [];
+        const replyPhotos = notice.photos?.filter(p => p.description === '整改回复照片') || [];
         
         showModal(`
             <div class="notice-card ${notice.status}" style="box-shadow:none;margin:0;">
@@ -1004,11 +1035,11 @@ function openNoticeDetail(noticeId) {
                     <strong>问题描述：</strong>${notice.description}
                 </div>
                 
-                ${notice.photos && notice.photos.length > 0 ? `
+                ${problemPhotos.length > 0 ? `
                     <div style="margin-bottom:12px;">
                         <div style="font-size:12px;color:#8c8c8c;margin-bottom:8px;">问题照片：</div>
                         <div class="photo-gallery">
-                            ${notice.photos.filter(p => p.description === '整改问题照片').map(photo => `
+                            ${problemPhotos.map(photo => `
                                 <div class="photo-gallery-item" onclick="viewPhoto('${photo.url}')">
                                     <img src="${photo.url}" alt="${photo.filename}">
                                 </div>
@@ -1017,17 +1048,42 @@ function openNoticeDetail(noticeId) {
                     </div>
                 ` : ''}
                 
+                ${notice.deadline ? `
+                    <div style="padding:8px 12px;background:#fff7e6;border-radius:6px;margin-bottom:12px;font-size:13px;">
+                        ⏰ <strong>整改截止日期：</strong> ${formatDate(notice.deadline)}
+                    </div>
+                ` : ''}
+                
+                ${canReply ? `
+                    <form id="reply-notice-form" style="border-top:1px solid #e8e8e8;padding-top:16px;margin-top:16px;">
+                        <div style="font-weight:600;margin-bottom:12px;">📝 回复整改</div>
+                        <div class="form-group">
+                            <label>整改说明 *</label>
+                            <textarea name="replyContent" required placeholder="请详细描述整改情况"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>上传整改后照片 (最多9张)</label>
+                            <div class="photo-upload-area" onclick="document.getElementById('reply-photo-input').click()">
+                                <div style="font-size:48px;margin-bottom:8px;">📷</div>
+                                <div>点击选择照片</div>
+                            </div>
+                            <input type="file" id="reply-photo-input" accept="image/*" multiple style="display:none;" onchange="handleReplyPhotoSelect(event)">
+                            <div class="photo-preview-grid" id="reply-photo-preview-grid"></div>
+                        </div>
+                    </form>
+                ` : ''}
+                
                 ${notice.replyContent ? `
-                    <div class="notice-reply">
+                    <div class="notice-reply" style="${canReply ? 'border-top:1px solid #e8e8e8;padding-top:16px;margin-top:16px;' : ''}">
                         <strong>整改回复：</strong>${notice.replyContent}
                         <div style="margin-top:8px;font-size:12px;color:#8c8c8c;">
                             回复人: ${notice.replyByName || '-'} | ${formatDateTime(notice.replyDate)}
                         </div>
-                        ${notice.photos && notice.photos.some(p => p.description === '整改回复照片') ? `
+                        ${replyPhotos.length > 0 ? `
                             <div style="margin-top:12px;">
                                 <div style="font-size:12px;color:#8c8c8c;margin-bottom:8px;">整改照片：</div>
                                 <div class="photo-gallery">
-                                    ${notice.photos.filter(p => p.description === '整改回复照片').map(photo => `
+                                    ${replyPhotos.map(photo => `
                                         <div class="photo-gallery-item" onclick="viewPhoto('${photo.url}')">
                                             <img src="${photo.url}" alt="${photo.filename}">
                                         </div>
@@ -1057,12 +1113,16 @@ function openNoticeDetail(noticeId) {
                     </div>
                     <div style="display:flex;gap:8px;">
                         <span class="project-status ${getStatusClass(notice.status)}">${getStatusText(notice.status)}</span>
-                        ${canReply ? `<button class="btn btn-primary btn-sm" onclick="closeModal();showReplyNoticeModal('${notice.id}')">回复整改</button>` : ''}
-                        ${canReview ? `<button class="btn btn-primary btn-sm" onclick="closeModal();showReviewNoticeModal('${notice.id}')">审核</button>` : ''}
+                        ${canReply ? `<button type="button" class="btn btn-primary btn-sm" onclick="submitReplyFromDetail('${notice.id}')">提交回复</button>` : ''}
+                        ${canReview ? `<button type="button" class="btn btn-primary btn-sm" onclick="closeModal();showReviewNoticeModal('${notice.id}')">审核</button>` : ''}
                     </div>
                 </div>
             </div>
         `, '整改通知单详情');
+        
+        if (canReply) {
+            window.replyPhotos = [];
+        }
     }).catch(err => {
         showToast(err.message, 'error');
     });
@@ -2198,6 +2258,49 @@ function submitReply(noticeId) {
         }
         closeModal();
         loadRectificationPage();
+        showToast('整改回复已提交', 'success');
+    }).catch(err => {
+        showToast(err.message, 'error');
+    });
+}
+
+function submitReplyFromDetail(noticeId) {
+    const form = document.getElementById('reply-notice-form');
+    const replyContent = form?.replyContent?.value?.trim();
+    
+    if (!replyContent) {
+        showToast('请填写整改说明', 'error');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('replyContent', replyContent);
+    
+    if (window.replyPhotos) {
+        window.replyPhotos.forEach(photo => {
+            formData.append('photos', photo.file);
+        });
+    }
+    
+    fetch(API_BASE + `/inspection/${noticeId}/reply`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: formData
+    }).then(response => response.json()).then(data => {
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        closeModal();
+        updateNotificationBadge();
+        
+        if (currentPage === 'notifications') {
+            loadNotificationsPage();
+        } else {
+            loadRectificationPage();
+        }
+        
         showToast('整改回复已提交', 'success');
     }).catch(err => {
         showToast(err.message, 'error');

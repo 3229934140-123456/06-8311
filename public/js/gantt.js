@@ -18,7 +18,7 @@ class GanttChart {
 
     async loadUsers() {
         try {
-            const response = await apiRequest('/api/auth/users');
+            const response = await apiRequest('/auth/users');
             this.users = response || [];
         } catch (e) {
             this.users = [];
