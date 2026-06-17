@@ -1,0 +1,51 @@
+[
+  {
+    "id": "268927bd-3284-43d8-ae8d-631b5754e3c6",
+    "username": "admin",
+    "password": "$2a$10$yBX7zig/G.HIIS6VqkS0Yu.joSYUL0YuA1/3Duac6aJrNaWxlQ7sa",
+    "name": "张经理",
+    "role": "project_manager",
+    "phone": "13800138001",
+    "createdAt": "2026-06-17T04:49:09.306Z"
+  },
+  {
+    "id": "4aba251c-4b2f-4cbf-8847-a96fca094da9",
+    "username": "worker1",
+    "password": "$2a$10$Li8xcobIHBAt3ZhlLGz71eVF1xCSNVxGf5SRLK1IlXrhbIR8gQCMC",
+    "name": "李工头",
+    "role": "foreman",
+    "phone": "13800138002",
+    "team": "主体结构班组",
+    "createdAt": "2026-06-17T04:49:09.416Z"
+  },
+  {
+    "id": "61142307-e320-497e-a02b-da9c6480bc4b",
+    "username": "worker2",
+    "password": "$2a$10$tGxwAX3NXDhf9SSilIWil.rYDIaPWFEog/EbN4CUAlx37TlyEqvEa",
+    "name": "王班长",
+    "role": "foreman",
+    "phone": "13800138003",
+    "team": "装修班组",
+    "createdAt": "2026-06-17T04:49:09.526Z"
+  },
+  {
+    "id": "a3a374d4-ddec-49c3-8cbc-30531cdac12f",
+    "username": "supervisor1",
+    "password": "$2a$10$SH46Cwc1J2c3eZvKRidkXOmks31WIwz/5j4UkfloQOUKv9Dm2ZgBq",
+    "name": "赵监理",
+    "role": "supervisor",
+    "phone": "13800138004",
+    "company": "诚信监理有限公司",
+    "createdAt": "2026-06-17T04:49:09.632Z"
+  },
+  {
+    "id": "53e8703a-1fd0-4b2a-8635-19d1544ebffe",
+    "username": "owner1",
+    "password": "$2a$10$OR52mTCsH5Wx3hd7DZ2BzOb/u5zpyqtfDBAOmmwGVH0dcXzDeHO0W",
+    "name": "刘总",
+    "role": "owner",
+    "phone": "13800138005",
+    "company": "鑫源置业有限公司",
+    "createdAt": "2026-06-17T04:49:09.740Z"
+  }
+]
